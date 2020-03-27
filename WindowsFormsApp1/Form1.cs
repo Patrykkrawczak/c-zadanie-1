@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 
 
-namespace WindowsFormsApp1
+namespace WindowsFormsApp
 {
     public partial class Form1 : Form
     {
@@ -25,20 +25,29 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             float true_wynik = 1000000 / 3;
+
             Console.Out.WriteLine(m_box.Text);
             int m = int.Parse(m_box.Text);
             int z = int.Parse(z_box.Text);
             Random rnd = new Random();
             int d = 10;
             int l = 100000;
-            float f = 0.0F;
+            double f = 0.0F;
+            int o = 0;
+            WindowsFormsApp.SingleCount single = new SingleCount();
+            single.X1 = 0;
+            single.X2 = 100;
+            single.Area = 333333.333;
             for (int j = 0; j < m; j++) {
+                
+                
                 f = 0.0F;
                 int licz = 0;
-                float old_i = 0;
-                float n = rnd.Next(d, l);
-                for (float i = 0.0F; i <= 100.0; i = i + 100F / n)
+                double old_i = 0;
+                double n = rnd.Next(d, l);
+                for (double i = single.X1; i <= single.X2; i = i + 100F / n)
                 {
 
                     licz += 1;
@@ -46,7 +55,8 @@ namespace WindowsFormsApp1
 
                     old_i = i;
                 };
-                if (333333.333 / f > z/100.0) {
+                if (single.Area / f > z/100.0) {
+
                     string wynik = "metoda kwadratów parametry to n=";
                     wynik += n.ToString();
                     wynik += "  wynik to =";
@@ -58,7 +68,7 @@ namespace WindowsFormsApp1
 
                 n = rnd.Next(d, l);
                 old_i = 0;
-                for (float i = 0.0F; i <= 100.0; i = i + 100F / n)
+                for (double i = 0.0F; i <= 100.0; i = i + 100F / n)
                 {
 
                     licz += 1;
@@ -66,7 +76,7 @@ namespace WindowsFormsApp1
 
                     old_i = i;
                 };
-                if (333333.333 / f > z / 100.0)
+                if (single.Area / f > z / 100.0)
                 {
                     string wynik = "metoda trapezów parametry to n=";
                     wynik += n.ToString();
